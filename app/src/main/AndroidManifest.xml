@@ -13,16 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".Score"
-            android:parentActivityName=".MainActivity"
+            android:name="com.frogobox.pianotilesclone.ScoreActivity"
+            android:parentActivityName="com.frogobox.pianotilesclone.MainActivity"
             android:screenOrientation="portrait"
             ></activity>
         <activity
-            android:name=".Game"
-            android:parentActivityName=".MainActivity"
+            android:name="com.frogobox.pianotilesclone.GameActivity"
+            android:parentActivityName="com.frogobox.pianotilesclone.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.frogobox.pianotilesclone.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MyPreferences"
+            android:name="com.frogobox.pianotilesclone.MyPreferences"
             android:theme="@style/PreferencesTheme" />
 
         <meta-data

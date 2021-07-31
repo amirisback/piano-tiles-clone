@@ -1,7 +1,9 @@
-package com.example.myapplication;
+package com.frogobox.pianotilesclone;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+
+import com.example.myapplication.R;
 
 public class MyPreferences extends PreferenceActivity {
     @Override

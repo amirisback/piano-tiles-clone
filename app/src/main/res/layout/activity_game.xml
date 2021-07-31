@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentRelative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/parentRelative"
     android:background="#4D5D53"
-    tools:context=".Game">
+    tools:context="com.frogobox.pianotilesclone.GameActivity">
 
     <Button
         android:id="@+id/beginButton"
@@ -16,12 +16,11 @@
         android:layout_centerHorizontal="true"
         android:onClick="startGame"
         android:text="Begin" />
-    <com.facebook.share.widget.ShareButton
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:id="@+id/shareButtonFB">
-    </com.facebook.share.widget.ShareButton>
 
+    <com.facebook.share.widget.ShareButton
+        android:id="@+id/shareButtonFB"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
 
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.frogobox.pianotilesclone;
 
 import org.junit.Test;
 

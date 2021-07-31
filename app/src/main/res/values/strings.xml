@@ -1,5 +1,4 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <string name="app_name" android:layout_centerhorizontal="true">White Tiles</string>
     <string name="facebook_app_id">983180665757410</string>
     <string name="fb_login_protocol_scheme">fb983180665757410</string>
     <string name="title_activity_score">Score</string>
