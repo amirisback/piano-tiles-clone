@@ -1,16 +1,16 @@
-package com.frogobox.pianotilesclone;
+package com.frogobox.pianotilesclone
 
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceActivity
+import android.os.Bundle
+import com.example.myapplication.R
 
-import com.example.myapplication.R;
+class MyPreferences : PreferenceActivity() {
 
-public class MyPreferences extends PreferenceActivity {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        super.onCreate(savedInstanceState);
-        getPreferenceManager().setSharedPreferencesName("my_prefs");
-        addPreferencesFromResource(R.xml.my_preferences);
+        preferenceManager.sharedPreferencesName = "my_prefs"
+        addPreferencesFromResource(R.xml.my_preferences)
     }
+
 }

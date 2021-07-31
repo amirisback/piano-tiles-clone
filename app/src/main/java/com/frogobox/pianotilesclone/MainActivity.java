@@ -2,7 +2,6 @@ package com.frogobox.pianotilesclone;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,9 +10,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.databinding.ActivityMainBinding;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -23,66 +22,53 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private CallbackManager callbackManager;
-    private LoginButton loginButton;
-    private ImageView fbImageView;
     private boolean isLogged = false;
 
+    @NonNull
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public ActivityMainBinding setupViewBinding() {
+        return ActivityMainBinding.inflate(getLayoutInflater());
+    }
+
+    @Override
+    public void setupUI(Bundle savedInstanceState) {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar_layout);
 
         System.out.println("da,merge");
         callbackManager = CallbackManager.Factory.create();
-        fbImageView = findViewById(R.id.fbimage);
-        loginButton = findViewById(R.id.login_button);
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        binding.loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
-
-
-            }
+            public void onSuccess(LoginResult loginResult) { }
 
             @Override
-            public void onCancel() {
-
-
-            }
+            public void onCancel() { }
 
             @Override
-            public void onError(FacebookException error) {
-
-
-            }
+            public void onError(FacebookException error) { }
         });
     }
 
+
     private void initScoreBoards() {
-
-
         SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         Set<String> initSet = new HashSet<>();
         initSet.add("init" + "\n" + "-1");
-
 
         if (sharedPreferences.getStringSet("Easy", null) == null) {
             editor.putStringSet("Easy", initSet);
@@ -93,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
         if (sharedPreferences.getStringSet("Hard", null) == null) {
             editor.putStringSet("Hard", initSet);
         }
-        editor.commit();
-
-
+        editor.apply();
     }
 
     private void updateLogStatus() {
@@ -105,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!isLogged)
             editor.putString("pic", "");
-        editor.commit();
+        editor.apply();
 
     }
 
@@ -116,25 +100,17 @@ public class MainActivity extends AppCompatActivity {
         GraphRequest graphRequest = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {
-
-
                 try {
-
                     String id = object.getString("id");
                     String pic = object.getJSONObject("picture").getJSONObject("data").getString("url");
                     SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("pic", pic);
                     editor.commit();
-                    Picasso.get().load(sharedPreferences.getString("pic", "")).into(fbImageView);
+                    Picasso.get().load(sharedPreferences.getString("pic", "")).into(binding.fbimage);
                     isLogged = true;
                     updateLogStatus();
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    isLogged = false;
-                    updateLogStatus();
-                } catch (NullPointerException e) {
+                } catch (JSONException | NullPointerException e) {
                     e.printStackTrace();
                     isLogged = false;
                     updateLogStatus();
@@ -156,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 LoginManager.getInstance().logOut();
                 isLogged = false;
                 updateLogStatus();
-                fbImageView.setImageResource(0);
+                binding.fbimage.setImageResource(0);
             }
         }
     };
@@ -164,13 +140,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         accessTokenTracker.stopTracking();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.maine_menu, menu);
         return true;
@@ -178,10 +152,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.Settings: {
-                startActivity(new Intent(this, MyPreferences.class));
-            }
+        if (item.getItemId() == R.id.Settings) {
+            startActivity(new Intent(this, MyPreferences.class));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -189,20 +161,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        fbImageView = findViewById(R.id.fbimage);
         SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
-        if (sharedPreferences.getString("pic", "") != "")
-            Picasso.get().load(sharedPreferences.getString("pic", "")).into(fbImageView);
+        if (!sharedPreferences.getString("pic", "").equals(""))
+            Picasso.get().load(sharedPreferences.getString("pic", "")).into(binding.fbimage);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        fbImageView = findViewById(R.id.fbimage);
         SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
         if (!sharedPreferences.getString("pic", "").contains("")) {
-
-            Picasso.get().load(sharedPreferences.getString("pic", "")).into(fbImageView);
+            Picasso.get().load(sharedPreferences.getString("pic", "")).into(binding.fbimage);
         }
     }
 
@@ -221,29 +190,25 @@ public class MainActivity extends AppCompatActivity {
 
         Set<String> s1 = sharedPreferences.getStringSet("Easy", null);
         int n = s1.size();
-        String arr1[] = new String[n];
+        String[] arr1 = new String[n];
         arr1 = s1.toArray(arr1);
 
-        Arrays.sort(arr1, new Comparator<String>() {
-            public int compare(String one, String two) {
-                return Integer.valueOf(two.split("\n")[1]) - Integer.valueOf(one.split("\n")[1]);
-            }
-        });
+        Arrays.sort(arr1, (one, two) -> Integer.parseInt(two.split("\n")[1]) - Integer.parseInt(one.split("\n")[1]));
 
         Set<String> s2 = sharedPreferences.getStringSet("Medium", null);
         int n2 = s2.size();
-        String arr2[] = new String[n2];
+        String[] arr2 = new String[n2];
         arr2 = s2.toArray(arr2);
 
-        Arrays.sort(arr2, (one, two) -> Integer.valueOf(two.split("\n")[1]) - Integer.valueOf(one.split("\n")[1]));
+        Arrays.sort(arr2, (one, two) -> Integer.parseInt(two.split("\n")[1]) - Integer.parseInt(one.split("\n")[1]));
 
 
         Set<String> s3 = sharedPreferences.getStringSet("Hard", null);
         int n3 = s3.size();
-        String arr3[] = new String[n3];
+        String[] arr3 = new String[n3];
         arr3 = s3.toArray(arr3);
 
-        Arrays.sort(arr3, (one, two) -> Integer.valueOf(two.split("\n")[1]) - Integer.valueOf(one.split("\n")[1]));
+        Arrays.sort(arr3, (one, two) -> Integer.parseInt(two.split("\n")[1]) - Integer.parseInt(one.split("\n")[1]));
 
         if (n > 5)
             arr1 = Arrays.copyOfRange(arr1, 0, 5);
@@ -259,4 +224,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+
 }

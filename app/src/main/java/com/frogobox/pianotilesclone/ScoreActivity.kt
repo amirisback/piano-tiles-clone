@@ -1,67 +1,63 @@
-package com.frogobox.pianotilesclone;
+package com.frogobox.pianotilesclone
 
-import android.content.Intent;
-import android.os.Bundle;
+import com.frogobox.pianotilesclone.BaseActivity
+import android.widget.ArrayAdapter
+import com.example.myapplication.R
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import com.example.myapplication.databinding.ActivityScoreBinding
+import java.util.ArrayList
 
-import com.example.myapplication.R;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Spinner;
-
-import java.util.ArrayList;
-
-public class ScoreActivity extends AppCompatActivity {
-
-    private Spinner spinner;
-    private Button button;
-    private String[] arr1, arr2, arr3;
-    private ListView listView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_score);
-        spinner = findViewById(R.id.spinner);
-        ArrayList<String> arrayData = new ArrayList<>();
-        arrayData.add("Easy");
-        arrayData.add("Medium");
-        arrayData.add("Hard");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, R.layout.spinner_item, R.id.spinnerText, arrayData);
-        spinner.setAdapter(arrayAdapter);
-        Intent i = getIntent();
-        arr1 = i.getStringArrayExtra("easy");
-        arr2 = i.getStringArrayExtra("medium");
-        arr3 = i.getStringArrayExtra("hard");
-
-        button = findViewById(R.id.button2);
+class ScoreActivity : BaseActivity<ActivityScoreBinding>() {
+    private lateinit var arr1: Array<String>
+    private lateinit var arr2: Array<String>
+    private lateinit var arr3: Array<String>
+    
+    override fun setupViewBinding(): ActivityScoreBinding {
+        return ActivityScoreBinding.inflate(layoutInflater)
     }
 
-    public void displayScore(View view) {
-        ArrayList<String> toShow = new ArrayList<>();
-        if (spinner.getSelectedItem().toString().contains("Easy")) {
-            for (String s : arr1) {
-                if (!s.split("\n")[1].contains("-1"))
-                    toShow.add(s.split("\n")[0] + " : " + s.split("\n")[1]);
+    override fun setupUI(savedInstanceState: Bundle?) {
+        val arrayData = ArrayList<String>()
+        arrayData.add("Easy")
+        arrayData.add("Medium")
+        arrayData.add("Hard")
+        val arrayAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this, R.layout.spinner_item, R.id.spinnerText, arrayData)
+        binding.spinner.adapter = arrayAdapter
+        val i = intent
+        arr1 = i.getStringArrayExtra("easy") as Array<String>
+        arr2 = i.getStringArrayExtra("medium") as Array<String>
+        arr3 = i.getStringArrayExtra("hard") as Array<String>
+    }
+
+    fun displayScore(view: View) {
+        val toShow = ArrayList<String?>()
+        when {
+            binding.spinner.selectedItem.toString().contains("Easy") -> {
+                for (s in arr1) {
+                    if (!s.split("\n").toTypedArray()[1].contains("-1")) toShow.add(
+                        s.split("\n").toTypedArray()[0] + " : " + s.split("\n").toTypedArray()[1]
+                    )
+                }
             }
-        } else if (spinner.getSelectedItem().toString().contains("Medium")) {
-            for (String s : arr2) {
-                if (!s.split("\n")[1].contains("-1"))
-                    toShow.add(s.split("\n")[0] + " : " + s.split("\n")[1]);
+            binding.spinner.selectedItem.toString().contains("Medium") -> {
+                for (s in arr2) {
+                    if (!s.split("\n").toTypedArray()[1].contains("-1")) toShow.add(
+                        s.split("\n").toTypedArray()[0] + " : " + s.split("\n").toTypedArray()[1]
+                    )
+                }
             }
-        } else {
-            for (String s : arr3) {
-                if (!s.split("\n")[1].contains("-1"))
-                    toShow.add(s.split("\n")[0] + " : " + s.split("\n")[1]);
+            else -> {
+                for (s in arr3) {
+                    if (!s.split("\n").toTypedArray()[1].contains("-1")) toShow.add(
+                        s.split("\n").toTypedArray()[0] + " : " + s.split("\n").toTypedArray()[1]
+                    )
+                }
             }
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, R.layout.score_item, R.id.scoreText, toShow);
-        listView = findViewById(R.id.scoreList);
-        listView.setAdapter(arrayAdapter);
-
+        val arrayAdapter: ArrayAdapter<String?> =
+            ArrayAdapter<String?>(this, R.layout.score_item, R.id.scoreText, toShow)
+        binding.scoreList.adapter = arrayAdapter
     }
 }
