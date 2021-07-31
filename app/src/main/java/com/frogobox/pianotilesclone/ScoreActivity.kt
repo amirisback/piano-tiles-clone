@@ -1,12 +1,10 @@
 package com.frogobox.pianotilesclone
 
-import com.frogobox.pianotilesclone.BaseActivity
 import android.widget.ArrayAdapter
-import com.example.myapplication.R
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.example.myapplication.databinding.ActivityScoreBinding
+import com.frogobox.pianotilesclone.databinding.ActivityScoreBinding
+import com.frogobox.pianotilesclone.BaseActivity
 import java.util.ArrayList
 
 class ScoreActivity : BaseActivity<ActivityScoreBinding>() {

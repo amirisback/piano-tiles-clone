@@ -6,12 +6,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -25,10 +23,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.myapplication.R;
-import com.example.myapplication.databinding.ActivityGameBinding;
-import com.facebook.share.model.ShareHashtag;
-import com.facebook.share.model.ShareLinkContent;
+import com.frogobox.pianotilesclone.databinding.ActivityGameBinding;
+import com.frogobox.pianotilesclone.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -134,15 +130,6 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         }
     }
 
-    private void shareOnFavebook() {
-        ShareLinkContent shareLinkContent = new ShareLinkContent.Builder().setContentUrl(Uri.parse("https://www.youtube.com/watch?v=5_kPo8muETo"))
-                .setShareHashtag(new ShareHashtag.Builder().setHashtag("#WhiteTile").build()).
-                        setQuote("I just scored " + score + " points on " + difficultyName + " difficulty").build();
-
-        binding.shareButtonFB.setShareContent(shareLinkContent);
-        binding.shareButtonFB.callOnClick();
-    }
-
     public void initGame() {
         paused = false;
         score = 0;
@@ -208,19 +195,8 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         String message = "Player:" + sharedPreferences.getString("PName", "Player") + "\n" + "Difficulty:" + difficultyName + "\nScore:" + score;
         builder.setMessage(message);
         builder.setPositiveButton("Ok", (dialog, which) -> {
-
         });
 
-        SharedPreferences sharedPreferences = getSharedPreferences("prefs", 0);
-
-        if (sharedPreferences.getBoolean("isLogged", false)) {
-            builder.setNeutralButton("Share", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    shareOnFavebook();
-                }
-            });
-        }
 
         AlertDialog alertDialog = builder.create();
         try {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+    package="com.frogobox.pianotilesclone">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -12,17 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+
         <activity
-            android:name="com.frogobox.pianotilesclone.ScoreActivity"
-            android:parentActivityName="com.frogobox.pianotilesclone.MainActivity"
-            android:screenOrientation="portrait"
-            ></activity>
-        <activity
-            android:name="com.frogobox.pianotilesclone.GameActivity"
-            android:parentActivityName="com.frogobox.pianotilesclone.MainActivity"
+            android:name=".ScoreActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
+
         <activity
-            android:name="com.frogobox.pianotilesclone.MainActivity"
+            android:name=".GameActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MyPreferences"
+            android:theme="@style/PreferencesTheme" />
+
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,23 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.frogobox.pianotilesclone.MyPreferences"
-            android:theme="@style/PreferencesTheme" />
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
-
-        <provider
-            android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider983180665757410"
-            android:exported="true" />
     </application>
 
 </manifest>

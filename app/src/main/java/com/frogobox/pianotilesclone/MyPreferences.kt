@@ -2,7 +2,6 @@ package com.frogobox.pianotilesclone
 
 import android.preference.PreferenceActivity
 import android.os.Bundle
-import com.example.myapplication.R
 
 class MyPreferences : PreferenceActivity() {
 
