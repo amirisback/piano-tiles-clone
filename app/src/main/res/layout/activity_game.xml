@@ -5,16 +5,23 @@
     android:id="@+id/parentRelative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4D5D53"
-    tools:context="com.frogobox.pianotilesclone.GameActivity">
+    android:background="#4D5D53">
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="0"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="72sp" />
 
     <Button
-        android:id="@+id/beginButton"
+        android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="startGame"
-        android:text="Begin" />
+        android:text="start" />
 
 </RelativeLayout>

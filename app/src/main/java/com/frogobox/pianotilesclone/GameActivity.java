@@ -3,8 +3,6 @@ package com.frogobox.pianotilesclone;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.view.menu.ActionMenuItemView;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -16,15 +14,12 @@ import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.frogobox.pianotilesclone.databinding.ActivityGameBinding;
-import com.frogobox.pianotilesclone.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -44,7 +39,6 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
 
     private boolean paused = false;
     private boolean updateScore = false;
-    private boolean isLogged = false;
     private boolean gameRunning = false;
 
     private float tileWidth, tileHeight;
@@ -61,8 +55,6 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
     private List<Float> availablePositions;
 
     private MediaPlayer b1, b2, b3, b4;
-
-    private ActionMenuItemView titleView;
 
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
@@ -128,6 +120,11 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         if (gameRunning) {
             initGame();
         }
+
+        binding.btnStart.setOnClickListener(v -> {
+            startGame();
+        });
+
     }
 
     public void initGame() {
@@ -137,12 +134,7 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         imageViewList = new ArrayList<>();
         availablePositions = new ArrayList<>();
         b3 = MediaPlayer.create(getApplicationContext(), R.raw.b3);
-
-        titleView = findViewById(R.id.ScoreId);
-        String tempScore = "Score:" + score;
-
-        titleView.setTitle(tempScore);
-
+        binding.tvScore.setText(String.valueOf(score));
         for (int i = 0; i < 4; i++) {
             availablePositions.add(tileHeight);
         }
@@ -154,9 +146,8 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
                     moveTiles();
                     if (updateScore) {
                         increaseDifficulty();
-                        titleView = findViewById(R.id.ScoreId);
                         score += 1;
-                        titleView.setTitle("Score:" + score);
+                        binding.tvScore.setText(String.valueOf(score));
                         updateScore = false;
                     }
 
@@ -194,9 +185,7 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         builder.setTitle("Results");
         String message = "Player:" + sharedPreferences.getString("PName", "Player") + "\n" + "Difficulty:" + difficultyName + "\nScore:" + score;
         builder.setMessage(message);
-        builder.setPositiveButton("Ok", (dialog, which) -> {
-        });
-
+        builder.setPositiveButton("Ok", (dialog, which) -> { });
 
         AlertDialog alertDialog = builder.create();
         try {
@@ -265,7 +254,7 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
     private void DrawTile(boolean black, float x, float y) {
 
         ImageView imageView = new ImageView(getApplicationContext());
-        addvieW(imageView, (int) tileWidth, (int) tileHeight);
+        addView(imageView, (int) tileWidth, (int) tileHeight);
         imageView.setX(x);
         imageView.setY(-2 * tileHeight);
         if (black) {
@@ -294,12 +283,9 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
             return true;
         });
 
-        imageView.setOnGenericMotionListener(new View.OnGenericMotionListener() {
-            @Override
-            public boolean onGenericMotion(View v, MotionEvent event) {
-                onTileClick(v, black);
-                return false;
-            }
+        imageView.setOnGenericMotionListener((v, event) -> {
+            onTileClick(v, black);
+            return false;
         });
 
         imageView.setOnHoverListener((v, event) -> {
@@ -342,7 +328,7 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         }
     }
 
-    private void addvieW(ImageView imageView, int width, int height) {
+    private void addView(ImageView imageView, int width, int height) {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, height);
         params.setMargins(0, 0, 0, 0);
         imageView.setLayoutParams(params);
@@ -365,13 +351,12 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         for (ImageView imageView : imageViewList) {
             binding.parentRelative.removeView(imageView);
         }
-        Button beginButton = findViewById(R.id.beginButton);
-        beginButton.setVisibility(View.VISIBLE);
+        binding.btnStart.setVisibility(View.VISIBLE);
     }
 
-    public void startGame(View view) {
+    public void startGame() {
         initGame();
-        binding.beginButton.setVisibility(View.GONE);
+        binding.btnStart.setVisibility(View.GONE);
     }
 
 }

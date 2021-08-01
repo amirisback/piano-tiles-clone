@@ -2,16 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <item android:title="Score:0"
-        android:id="@+id/ScoreId"
-        app:showAsAction="ifRoom"
-      />
-  <item android:title="Pause"
-      android:id="@+id/PauseId"
-      app:showAsAction="ifRoom"
-      android:icon="@drawable/ic_pause"
-      android:onClick="pauseGame"
-      >
+    <item
+        android:id="@+id/menu_pause"
+        android:icon="@drawable/ic_pause"
+        android:onClick="pauseGame"
+        android:title="Pause"
+        app:showAsAction="ifRoom" />
 
-  </item>
 </menu>

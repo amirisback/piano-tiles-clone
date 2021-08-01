@@ -9,14 +9,15 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/btn_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:onClick="startGame"
         android:text="Play"
         android:textColor="@color/white" />
 
     <Button
+        android:id="@+id/btn_show_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="showScore"
