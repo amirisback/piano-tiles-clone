@@ -14,14 +14,8 @@
         android:theme="@style/Theme.MyApplication">
 
         <activity
-            android:name=".ScoreActivity"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".GameActivity"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".MyPreferences"
@@ -29,12 +23,13 @@
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
     </application>

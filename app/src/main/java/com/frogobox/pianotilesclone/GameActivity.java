@@ -3,6 +3,7 @@ package com.frogobox.pianotilesclone;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.frogobox.pianotilesclone.databinding.ActivityGameBinding;
+import com.frogobox.pianotilesclone.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -185,7 +187,8 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         builder.setTitle("Results");
         String message = "Player:" + sharedPreferences.getString("PName", "Player") + "\n" + "Difficulty:" + difficultyName + "\nScore:" + score;
         builder.setMessage(message);
-        builder.setPositiveButton("Ok", (dialog, which) -> { });
+        builder.setPositiveButton("Ok", (dialog, which) -> {
+        });
 
         AlertDialog alertDialog = builder.create();
         try {
@@ -267,20 +270,18 @@ public class GameActivity extends BaseActivity<ActivityGameBinding> {
         enableListeners(imageView, black);
         imageViewList.add(imageView);
         childCount += 1;
+
     }
 
     private void enableListeners(ImageView imageView, boolean black) {
-        imageView.setOnClickListener(v -> onTileClick(v, black));
+
+        imageView.setOnClickListener(v -> {
+            onTileClick(v, black);
+        });
 
         imageView.setOnLongClickListener(v -> {
             onTileClick(v, black);
             return false;
-        });
-
-        imageView.setOnTouchListener((v, event) -> {
-            onTileClick(v, black);
-            imageView.setOnTouchListener(null);
-            return true;
         });
 
         imageView.setOnGenericMotionListener((v, event) -> {

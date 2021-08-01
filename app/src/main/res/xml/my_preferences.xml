@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-  <EditTextPreference
-      android:key="PName"
-      android:defaultValue="Player"
-      android:title="Player Name"
-      ></EditTextPreference>
+
     <ListPreference
-        android:key="PDifficulty"
-        android:title="Difficulty"
+        android:defaultValue="0"
         android:entries="@array/difficulty_list"
         android:entryValues="@array/difficulty_list_results"
-        android:defaultValue="0"
-        ></ListPreference>
-  <ListPreference
-      android:key="PVibrations"
-      android:title="Vibrations"
-      android:entries="@array/vibration_list"
-      android:entryValues="@array/vibration_list_results"
-      android:defaultValue="0"
-      ></ListPreference>
+        android:key="PDifficulty"
+        android:title="Difficulty" />
 
     <ListPreference
-      android:key="PSound"
-      android:title="Sounds"
-      android:entries="@array/sound_list"
-      android:entryValues="@array/sound_list_results"
         android:defaultValue="0"
-        ></ListPreference>
+        android:entries="@array/vibration_list"
+        android:entryValues="@array/vibration_list_results"
+        android:key="PVibrations"
+        android:title="Vibrations" />
 
-
-
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/sound_list"
+        android:entryValues="@array/sound_list_results"
+        android:key="PSound"
+        android:title="Sounds" />
 
 </PreferenceScreen>

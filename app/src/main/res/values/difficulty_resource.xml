@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="difficulty_list" >
+    <string-array name="difficulty_list">
         <item color="#ffffff">Easy</item>
         <item>Medium</item>
         <item>Hard</item>
     </string-array>
+
     <string-array name="difficulty_list_results">
         <item>0</item>
         <item>1</item>
