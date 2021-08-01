@@ -1,363 +1,304 @@
-package com.frogobox.pianotilesclone;
+package com.frogobox.pianotilesclone
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
+import android.content.SharedPreferences
+import android.media.MediaPlayer
+import android.os.Bundle
+import android.content.DialogInterface
+import android.content.res.Resources
+import android.graphics.Color
+import android.os.Handler
+import android.view.*
+import android.view.WindowManager.BadTokenException
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
+import com.frogobox.pianotilesclone.databinding.ActivityGameBinding
+import java.util.*
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.media.MediaPlayer;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Vibrator;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+class GameActivity : BaseActivity<ActivityGameBinding>() {
+    
+    private var timer = Timer()
+    private val handler = Handler()
 
-import com.frogobox.pianotilesclone.databinding.ActivityGameBinding;
-import com.frogobox.pianotilesclone.BaseActivity;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class GameActivity extends BaseActivity<ActivityGameBinding> {
-
-    private Timer timer = new Timer();
-    private Handler handler = new Handler();
-
-    private Vibrator vibe;
-    private SharedPreferences sharedPreferences;
-    private String difficultyName;
-
-    private boolean paused = false;
-    private boolean updateScore = false;
-    private boolean gameRunning = false;
-
-    private float tileWidth, tileHeight;
-    private float speed = 17;
-    private float backupSpeed = speed;
-
-    private int difficulty;
-    private int score = 0;
-    private int lastSc = 0;
-    private int childCount = 0;
-    private int period = 225;
-
-    private List<ImageView> imageViewList;
-    private List<Float> availablePositions;
-
-    private MediaPlayer b1, b2, b3, b4;
-
-    public static int getScreenWidth() {
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    private val myPreferences: SharedPreferences by lazy {
+        getSharedPreferences("my_prefs", 0)
     }
 
-    public static int getScreenHeight() {
-        return Resources.getSystem().getDisplayMetrics().heightPixels;
+    private var difficultyName: String? = null
+    
+    private var paused = false
+    private var updateScore = false
+    private val gameRunning = false
+    
+    private var tileWidth = 0f
+    private var tileHeight = 0f
+    private var speed = 17f
+    private var backupSpeed = speed
+    
+    private var difficulty = 0
+    private var score = 0
+    private var lastSc = 0
+    private var childCount = 0
+    private var period = 225
+    
+    private var imagePianoTilesList = mutableListOf<ImageView>()
+    private var availablePositions= mutableListOf<Float>()
+
+    private val b1: MediaPlayer? = null
+    private val b2: MediaPlayer? = null
+    private var b3: MediaPlayer? = null
+    private val b4: MediaPlayer? = null
+
+    private val screenWidth: Int = Resources.getSystem().displayMetrics.widthPixels
+    private val screenHeight: Int = Resources.getSystem().displayMetrics.heightPixels
+
+    override fun setupViewBinding(): ActivityGameBinding {
+        return ActivityGameBinding.inflate(layoutInflater)
     }
 
-    private void initDifficulty() {
-        if (difficulty == 0) {
-            speed = 10;
-            period = 350;
-        } else if (difficulty == 1) {
-            speed = 12;
-            period = 300;
-        } else {
-            speed = 14;
-            period = 250;
-        }
-        backupSpeed = speed;
-    }
+    override fun setupUI(savedInstanceState: Bundle?) {
+        tileHeight = (screenWidth / 2).toFloat()
+        tileWidth = (screenWidth / 4).toFloat()
 
-    private void increaseDifficulty() {
-        if (score - lastSc > 25) {
-            if (speed <= 17)
-                speed += 1;
-            else {
-                period -= 5;
+        when (myPreferences.getString("PDifficulty", "0")!!.toInt()) {
+            0 -> {
+                difficultyName = "Easy"
+                difficulty = 0
             }
-            lastSc = score;
+
+            1 -> {
+                difficulty = 1
+                difficultyName = "Medium"
+            }
+
+            2 -> {
+                difficultyName = "Hard"
+                difficulty = 2
+            }
         }
-    }
-
-    @NonNull
-    @Override
-    public ActivityGameBinding setupViewBinding() {
-        return ActivityGameBinding.inflate(getLayoutInflater());
-    }
-
-    @Override
-    public void setupUI(@Nullable Bundle savedInstanceState) {
-        tileHeight = getScreenWidth() / 2;
-        tileWidth = getScreenWidth() / 4;
-        vibe = (Vibrator) GameActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
-        sharedPreferences = getSharedPreferences("my_prefs", 0);
-
-        switch (Integer.parseInt(sharedPreferences.getString("PDifficulty", "0"))) {
-            case 0:
-                difficultyName = "Easy";
-                difficulty = 0;
-                break;
-            case 1:
-                difficulty = 1;
-                difficultyName = "Medium";
-                break;
-            case 2:
-                difficultyName = "Hard";
-                difficulty = 2;
-                break;
-        }
-
         if (gameRunning) {
-            initGame();
+            initGame()
         }
-
-        binding.btnStart.setOnClickListener(v -> {
-            startGame();
-        });
-
+        binding.btnStart.setOnClickListener { v: View? -> startGame() }
     }
 
-    public void initGame() {
-        paused = false;
-        score = 0;
-        initDifficulty();
-        imageViewList = new ArrayList<>();
-        availablePositions = new ArrayList<>();
-        b3 = MediaPlayer.create(getApplicationContext(), R.raw.b3);
-        binding.tvScore.setText(String.valueOf(score));
-        for (int i = 0; i < 4; i++) {
-            availablePositions.add(tileHeight);
+    private fun initDifficulty() {
+        when (difficulty) {
+            0 -> {
+                speed = 10f
+                period = 350
+            }
+            1 -> {
+                speed = 12f
+                period = 300
+            }
+            2 -> {
+                speed = 14f
+                period = 250
+            }
         }
+        backupSpeed = speed
+    }
 
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(() -> {
-                    moveTiles();
+    private fun increaseDifficulty() {
+        if (score - lastSc > 25) {
+            if (speed <= 17) speed += 1f else {
+                period -= 5
+            }
+            lastSc = score
+        }
+    }
+
+    private fun initGame() {
+        paused = false
+        score = 0
+        initDifficulty()
+        b3 = MediaPlayer.create(applicationContext, R.raw.b3)
+        binding.tvScore.text = score.toString()
+        for (i in 0..3) {
+            availablePositions.add(tileHeight)
+        }
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                handler.post {
+                    moveTiles()
                     if (updateScore) {
-                        increaseDifficulty();
-                        score += 1;
-                        binding.tvScore.setText(String.valueOf(score));
-                        updateScore = false;
+                        increaseDifficulty()
+                        score += 1
+                        binding.tvScore.text = score.toString()
+                        updateScore = false
                     }
-
-                });
+                }
             }
-        }, 0, 10);
-
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(() -> {
-                    if (!paused)
-                        pickNextTileToDraw();
-                });
+        }, 0, 10)
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                handler.post { if (!paused) pickNextTileToDraw() }
             }
-        }, 0, period);
-
+        }, 0, period.toLong())
     }
 
-    private void updateScoreList() {
-        SharedPreferences sharedPrefs = getSharedPreferences("prefs", 0);
-        sharedPreferences = getSharedPreferences("my_prefs", 0);
-        String v = sharedPreferences.getString("PName", "Player") + "\n" + score;
-        HashSet<String> mySet = new HashSet<String>(sharedPrefs.getStringSet(difficultyName, new HashSet<String>()));
-        SharedPreferences.Editor editor = sharedPrefs.edit();
-        mySet.add(v);
-        editor.putStringSet(difficultyName, new HashSet<String>(mySet));
-        editor.apply();
+    private fun updateScoreList() {
+        val v = myPreferences.getString("PName", "Player") + "\n" + score;
+        val mySet = HashSet(myPreferences.getStringSet(difficultyName, HashSet()))
+        val editor = myPreferences.edit()
+        mySet.add(v)
+        editor.putStringSet(difficultyName, HashSet(mySet))
+        editor.apply()
     }
 
-    private void showStats() {
-        updateScoreList();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Results");
-        String message = "Player:" + sharedPreferences.getString("PName", "Player") + "\n" + "Difficulty:" + difficultyName + "\nScore:" + score;
-        builder.setMessage(message);
-        builder.setPositiveButton("Ok", (dialog, which) -> {
-        });
-
-        AlertDialog alertDialog = builder.create();
+    private fun showStats() {
+        updateScoreList()
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Results")
+        val message = """
+            Player:${myPreferences.getString("PName", "Player")}
+            Difficulty:$difficultyName
+            Score:$score
+            """.trimIndent()
+        builder.setMessage(message)
+        builder.setPositiveButton("Ok") { dialog: DialogInterface?, which: Int -> }
+        val alertDialog = builder.create()
         try {
-            alertDialog.show();
-        } catch (WindowManager.BadTokenException e) {
-            e.printStackTrace();
+            alertDialog.show()
+        } catch (e: BadTokenException) {
+            e.printStackTrace()
         }
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.game_menu, menu);
-        return true;
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.game_menu, menu)
+        return true
     }
 
-    private void moveTiles() {
+    private fun moveTiles() {
         if (!paused) {
-
             if (speed < backupSpeed) {
-                speed += 0.05;
+                speed += 0.05f
             }
-            if (imageViewList != null) {
-
-                boolean quit = false;
-                for (ImageView imageView : imageViewList) {
-                    imageView.setY(imageView.getY() + speed);
-                    if (quit) {
-                        imageViewList = new ArrayList<>();
-                        break;
-                    }
-
-                    if (imageView.getY() > getScreenHeight()) {
-                        if (imageView.getMinimumHeight() == 0) {
-                            resetGame();
-                            showStats();
-                            quit = true;
-                        }
-                        binding.parentRelative.removeView(imageView);
-                    }
+            var quit = false
+            for (imageView in imagePianoTilesList) {
+                imageView.y = imageView.y + speed
+                if (quit) {
+                    imagePianoTilesList = ArrayList()
+                    break
                 }
-                for (int i = 0; i < 4; i++) {
-                    availablePositions.set(i, availablePositions.get(i) + speed);
+                if (imageView.y > screenHeight) {
+                    if (imageView.minimumHeight == 0) {
+                        resetGame()
+                        showStats()
+                        quit = true
+                    }
+                    binding.parentRelative.removeView(imageView)
                 }
+            }
+            for (i in 0..3) {
+                availablePositions[i] = availablePositions[i] + speed
             }
         }
-
     }
 
-    private void pickNextTileToDraw() {
-        Random rd = new Random();
-        boolean run = true;
+    private fun pickNextTileToDraw() {
+        val rd = Random()
+        var run = true
         while (run) {
-            int rnd = Math.abs(rd.nextInt()) % 4;
-            float f = rd.nextFloat();
-            if (availablePositions.get(rnd) >= tileHeight + speed) {
-                DrawTile(f > 0.25, rnd * tileWidth, 0);
-                availablePositions.set(rnd, 0f);
-                run = false;
+            val rnd = Math.abs(rd.nextInt()) % 4
+            val f = rd.nextFloat()
+            if (availablePositions[rnd] >= tileHeight + speed) {
+                drawTile(f > 0.25, rnd * tileWidth, 0f)
+                availablePositions[rnd] = 0f
+                run = false
             }
         }
-
     }
 
-    private void DrawTile(boolean black, float x, float y) {
-
-        ImageView imageView = new ImageView(getApplicationContext());
-        addView(imageView, (int) tileWidth, (int) tileHeight);
-        imageView.setX(x);
-        imageView.setY(-2 * tileHeight);
+    private fun drawTile(black: Boolean, x: Float, y: Float) {
+        val imageView = ImageView(applicationContext)
+        addView(imageView, tileWidth.toInt(), tileHeight.toInt())
+        imageView.x = x
+        imageView.y = -2 * tileHeight
         if (black) {
-            imageView.setBackgroundColor(Color.BLACK);
-            imageView.setMinimumHeight(0);
+            imageView.setBackgroundColor(Color.BLACK)
+            imageView.minimumHeight = 0
         } else {
-            imageView.setBackgroundColor(Color.WHITE);
-            imageView.setMinimumHeight(1);
+            imageView.setBackgroundColor(Color.WHITE)
+            imageView.minimumHeight = 1
         }
-        enableListeners(imageView, black);
-        imageViewList.add(imageView);
-        childCount += 1;
-
+        enableListeners(imageView, black)
+        imagePianoTilesList.add(imageView)
+        childCount += 1
     }
 
-    private void enableListeners(ImageView imageView, boolean black) {
-
-        imageView.setOnClickListener(v -> {
-            onTileClick(v, black);
-        });
-
-        imageView.setOnLongClickListener(v -> {
-            onTileClick(v, black);
-            return false;
-        });
-
-        imageView.setOnGenericMotionListener((v, event) -> {
-            onTileClick(v, black);
-            return false;
-        });
-
-        imageView.setOnHoverListener((v, event) -> {
-            onTileClick(v, black);
-            return false;
-        });
-
-        imageView.setOnDragListener((v, event) -> {
-            onTileClick(v, black);
-            return false;
-        });
-
+    private fun enableListeners(imageView: ImageView, black: Boolean) {
+        imageView.setOnClickListener { v: View -> onTileClick(v, black) }
+        imageView.setOnLongClickListener { v: View ->
+            onTileClick(v, black)
+            false
+        }
+        imageView.setOnGenericMotionListener { v: View, event: MotionEvent? ->
+            onTileClick(v, black)
+            false
+        }
+        imageView.setOnHoverListener { v: View, event: MotionEvent? ->
+            onTileClick(v, black)
+            false
+        }
+        imageView.setOnDragListener { v: View, event: DragEvent? ->
+            onTileClick(v, black)
+            false
+        }
     }
 
-    private boolean checkIfVibrations() {
-        SharedPreferences sharedPreferences = getSharedPreferences("my_prefs", 0);
-        return Integer.parseInt(sharedPreferences.getString("PVibrations", "0")) == 1;
+    private fun checkIfSounds(): Boolean {
+        return myPreferences.getString("PSound", "0")!!.toInt() == 1
     }
 
-    private boolean checkIfSounds() {
-        SharedPreferences sharedPreferences = getSharedPreferences("my_prefs", 0);
-        return Integer.parseInt(sharedPreferences.getString("PSound", "0")) == 1;
-    }
-
-    private void onTileClick(View view, boolean black) {
+    private fun onTileClick(view: View, black: Boolean) {
         if (!paused) {
             if (black) {
-                binding.parentRelative.removeView(view);
-                imageViewList.remove(view);
-                if (checkIfVibrations())
-                    vibe.vibrate(25);
-                updateScore = true;
+                binding.parentRelative.removeView(view)
+                imagePianoTilesList.remove(view)
+                updateScore = true
                 if (checkIfSounds()) {
-                    b3.start();
+                    b3!!.start()
                 }
             } else {
-                resetGame();
-                showStats();
+                resetGame()
+                showStats()
             }
         }
     }
 
-    private void addView(ImageView imageView, int width, int height) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, height);
-        params.setMargins(0, 0, 0, 0);
-        imageView.setLayoutParams(params);
-        binding.parentRelative.addView(imageView);
+    private fun addView(imageView: ImageView, width: Int, height: Int) {
+        val params = LinearLayout.LayoutParams(width, height)
+        params.setMargins(0, 0, 0, 0)
+        imageView.layoutParams = params
+        binding.parentRelative.addView(imageView)
     }
 
-    public void pauseGame(MenuItem item) {
+    fun pauseGame(item: MenuItem?) {
         if (!paused) {
-            paused = true;
-            speed = 10;
+            paused = true
+            speed = 10f
         } else {
-            paused = false;
+            paused = false
         }
     }
 
-    public void resetGame() {
-        timer.cancel();
-        timer.purge();
-        timer = new Timer();
-        for (ImageView imageView : imageViewList) {
-            binding.parentRelative.removeView(imageView);
+    private fun resetGame() {
+        timer.cancel()
+        timer.purge()
+        timer = Timer()
+        for (imageView in imagePianoTilesList) {
+            binding.parentRelative.removeView(imageView)
         }
-        binding.btnStart.setVisibility(View.VISIBLE);
+        binding.btnStart.visibility = View.VISIBLE
     }
 
-    public void startGame() {
-        initGame();
-        binding.btnStart.setVisibility(View.GONE);
+    private fun startGame() {
+        initGame()
+        binding.btnStart.visibility = View.GONE
     }
 
 }

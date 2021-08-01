@@ -10,13 +10,6 @@
 
     <ListPreference
         android:defaultValue="0"
-        android:entries="@array/vibration_list"
-        android:entryValues="@array/vibration_list_results"
-        android:key="PVibrations"
-        android:title="Vibrations" />
-
-    <ListPreference
-        android:defaultValue="0"
         android:entries="@array/sound_list"
         android:entryValues="@array/sound_list_results"
         android:key="PSound"
