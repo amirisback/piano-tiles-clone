@@ -31,10 +31,9 @@ Name Of Contribute
 
 Waiting for your contribute
 
-## Inpiration
-- Creator - Mihai-Maxim-Fii [Click Here](https://github.com/Mihai-Maxim-Fii)
-- White-Tiles-Android [Click Here](https://github.com/Mihai-Maxim-Fii/White-Tiles-Android)
-- Video From White-Tiles-Android [Click Here](https://www.youtube.com/watch?v=9-FNDK0K0A4&ab_channel=MihaiMaxim)
+## Inspiration
+- Creator [Mihai-Maxim-Fii](https://github.com/Mihai-Maxim-Fii)
+- White-Tiles-Android [Source](https://github.com/Mihai-Maxim-Fii/White-Tiles-Android) - [Video](https://www.youtube.com/watch?v=9-FNDK0K0A4&ab_channel=MihaiMaxim)
 
 ## Attention !!!
 - Please enjoy and don't forget fork and give a star
