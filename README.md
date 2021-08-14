@@ -1,12 +1,5 @@
 ## piano-tiles-clone
-Clone project piano tiles
-
-
-## Screen Shoot
-
-| UI 1 | UI 2 | UI 3 |
-|:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_1.png"> | <img width="200px" height="360px" src="docs/image/ss_2.png"> | <img width="200px" height="360px" src="docs/image/ss_3.png"> |
+Clone project piano tiles android studio from github open sources
 
 ## Version Release
 This Is Latest Release
@@ -16,6 +9,17 @@ This Is Latest Release
 What's New??
 
     * Development *
+
+## Screen Shoot [Mihai-Maxim-Fii](https://github.com/Mihai-Maxim-Fii)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<img width="200px" height="360px" src="docs/image/ss_1.png"> | <img width="200px" height="360px" src="docs/image/ss_2.png"> | <img width="200px" height="360px" src="docs/image/ss_3.png"> |
+
+## Screen Shoot [Gian Martin](https://github.com/gianmartind)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_4.png"> |
+
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
