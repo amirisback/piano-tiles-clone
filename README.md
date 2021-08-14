@@ -20,6 +20,11 @@ What's New??
 |:----:|:----:|:----:|
 |<img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_5.png"> | <img width="200px" height="360px" src="docs/image/ss_6.png"> |
 
+## Screen Shoot [Attila](https://github.com/atillaturkmen)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<img width="200px" height="360px" src="docs/image/ss_7.png"> | <img width="200px" height="360px" src="docs/image/ss_8.png"> | <img width="200px" height="360px" src="docs/image/ss_9.png"> |
+
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
@@ -37,6 +42,7 @@ Waiting for your contribute
 ## Inspiration
 - Creator [Mihai-Maxim-Fii](https://github.com/Mihai-Maxim-Fii) >> White-Tiles-Android [Source](https://github.com/Mihai-Maxim-Fii/White-Tiles-Android) - [Video](https://www.youtube.com/watch?v=9-FNDK0K0A4&ab_channel=MihaiMaxim)
 - Creator [Gian Martin](https://github.com/gianmartind) >> PianoTiles [Source](https://github.com/gianmartind/PianoTiles)
+- Creator [Atilla](https://github.com/atillaturkmen) >> PianoTiles [Source](https://github.com/atillaturkmen/piano-tiles)
 
 ## Attention !!!
 - Please enjoy and don't forget fork and give a star
