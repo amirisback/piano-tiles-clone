@@ -1,4 +1,4 @@
-package com.frogobox.pianotilesclone;
+package com.github.mihaimaximfii;
 
 import org.junit.Test;
 

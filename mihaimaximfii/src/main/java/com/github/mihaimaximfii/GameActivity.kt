@@ -1,4 +1,4 @@
-package com.frogobox.pianotilesclone
+package com.github.mihaimaximfii
 
 import android.content.SharedPreferences
 import android.media.MediaPlayer
@@ -12,7 +12,7 @@ import android.view.WindowManager.BadTokenException
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
-import com.frogobox.pianotilesclone.databinding.ActivityGameBinding
+import com.github.mihaimaximfii.databinding.ActivityGameBinding
 import java.util.*
 
 class GameActivity : BaseActivity<ActivityGameBinding>() {

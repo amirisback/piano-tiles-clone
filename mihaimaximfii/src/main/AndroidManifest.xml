@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.frogobox.pianotilesclone">
+    package="com.github.mihaimaximfii">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -14,15 +14,15 @@
         android:theme="@style/Theme.MyApplication">
 
         <activity
-            android:name=".GameActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="com.github.mihaimaximfii.GameActivity"
+            android:parentActivityName="com.github.mihaimaximfii.MainActivity" />
 
         <activity
-            android:name=".MyPreferences"
+            android:name="com.github.mihaimaximfii.MyPreferences"
             android:theme="@style/PreferencesTheme" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.github.mihaimaximfii.MainActivity"
             android:exported="true">
 
             <intent-filter>

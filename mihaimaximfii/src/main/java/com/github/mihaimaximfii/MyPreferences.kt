@@ -1,4 +1,4 @@
-package com.frogobox.pianotilesclone
+package com.github.mihaimaximfii
 
 import android.preference.PreferenceActivity
 import android.os.Bundle

@@ -1,12 +1,11 @@
-package com.frogobox.pianotilesclone
+package com.github.mihaimaximfii
 
-import com.frogobox.pianotilesclone.BaseActivity
 import android.os.Bundle
 import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
-import com.frogobox.pianotilesclone.databinding.ActivityMainBinding
+import com.github.mihaimaximfii.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
