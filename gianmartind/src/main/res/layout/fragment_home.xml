@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:fontFamily="@font/righteous"
+        android:textColor="@color/black"
+        android:text="@string/fragment_home"/>
+
+    <android.widget.Button
+        android:id="@+id/btn_start"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="@string/btn_home"
+        android:background="@drawable/custom_button"
+        android:layout_margin="10px"
+        android:backgroundTint="@color/darkBlue"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/white"/>
+
+    <android.widget.Button
+        android:id="@+id/btn_high_score"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="@string/high_score"
+        android:layout_margin="10px"
+        android:background="@drawable/custom_button_dark"
+        android:backgroundTint="@color/lightBlue"
+        android:fontFamily="@font/fredoka_one"/>
+
+    <android.widget.Button
+        android:id="@+id/btn_settings"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="@string/settings"
+        android:layout_margin="10px"
+        android:background="@drawable/custom_button_dark"
+        android:backgroundTint="@color/lightBlue"
+        android:fontFamily="@font/fredoka_one"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+    <android.widget.Button
+        android:id="@+id/btn_exit"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="@string/exit"
+        android:layout_margin="10px"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/darkRed"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

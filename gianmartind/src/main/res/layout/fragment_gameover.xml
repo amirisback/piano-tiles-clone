@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gameover"
+        android:textSize="60sp"
+        android:fontFamily="@font/righteous"
+        android:textColor="@color/black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:textSize="25sp"
+        android:fontFamily="@font/montserrat"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/enter_name"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/player_name"
+            android:hint="@string/name_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat"/>
+
+        <android.widget.Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_margin="10px"
+            android:id="@+id/save_name"
+            android:text="@string/save_name"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/teal_700"
+            android:textColor="@color/white"
+            android:fontFamily="@font/fredoka_one"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <android.widget.Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_margin="10px"
+            android:id="@+id/play_again"
+            android:text="@string/playagain"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/darkBlue"
+            android:textColor="@color/white"
+            android:fontFamily="@font/fredoka_one"/>
+
+        <android.widget.Button
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_margin="10px"
+            android:id="@+id/back_menu"
+            android:text="@string/backmenu"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/darkRed"
+            android:textColor="@color/white"
+            android:fontFamily="@font/fredoka_one"/>
+    </LinearLayout>
+</LinearLayout>

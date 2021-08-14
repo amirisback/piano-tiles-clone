@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Piano Tiles</string>
+    <string name="fragment_home">Piano Tiles</string>
+    <string name="btn_home">PLAY</string>
+    <string name="pause">PAUSE</string>
+    <string name="default_score">Score: </string>
+    <string name="high_score">High Score</string>
+    <string name="gameover">GAME OVER</string>
+    <string name="score">Your Score: </string>
+    <string name="playagain">Play Again</string>
+    <string name="backmenu">Back to Menu</string>
+    <string name="start">START</string>
+    <string name="name_hint">player name</string>
+    <string name="save">SAVE</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="save_name">Save</string>
+    <string name="settings">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="one">1</string>
+    <string name="three">3</string>
+    <string name="five">5</string>
+    <string name="clear_score">Clear High Score</string>
+    <string name="health_count">Health Count</string>
+    <string name="exit">Exit</string>
+</resources>
