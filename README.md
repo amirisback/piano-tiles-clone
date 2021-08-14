@@ -18,7 +18,7 @@ What's New??
 ## Screen Shoot [Gian Martin](https://github.com/gianmartind)
 | UI 1 | UI 2 | UI 3 |
 |:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_4.png"> |
+|<img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_5.png"> | <img width="200px" height="360px" src="docs/image/ss_6.png"> |
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
