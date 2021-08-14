@@ -20,7 +20,6 @@ What's New??
 |:----:|:----:|:----:|
 |<img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_4.png"> |
 
-
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
