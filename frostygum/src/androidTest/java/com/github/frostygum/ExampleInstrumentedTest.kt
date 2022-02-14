@@ -1,4 +1,4 @@
-package com.pppb.tb02
+package com.github.frostygum
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

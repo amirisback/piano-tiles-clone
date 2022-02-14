@@ -1,4 +1,4 @@
-package com.pppb.tb02.view
+package com.github.frostygum.view
 
 import android.content.Context
 import android.hardware.Sensor
@@ -10,10 +10,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.pppb.tb02.databinding.ActivityMainBinding
-import com.pppb.tb02.model.HighScore
-import com.pppb.tb02.model.Piano
-import com.pppb.tb02.presenter.MainPresenter
+import com.github.frostygum.databinding.ActivityMainBinding
+import com.github.frostygum.model.HighScore
+import com.github.frostygum.model.Piano
+import com.github.frostygum.presenter.MainPresenter
 
 
 class MainActivity : AppCompatActivity(), IMainActivity, SensorEventListener {

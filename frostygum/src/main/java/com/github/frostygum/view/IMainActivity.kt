@@ -1,7 +1,7 @@
-package com.pppb.tb02.view
+package com.github.frostygum.view
 
-import com.pppb.tb02.model.HighScore
-import com.pppb.tb02.model.Piano
+import com.github.frostygum.model.HighScore
+import com.github.frostygum.model.Piano
 
 interface IMainActivity {
     fun updateUIScore(score: Int)

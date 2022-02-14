@@ -1,4 +1,4 @@
-package com.pppb.tb02.view
+package com.github.frostygum.view
 
 import android.content.Context
 import android.os.Bundle
@@ -7,10 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pppb.tb02.R
-import com.pppb.tb02.databinding.FragmentGamePausedBinding
-import com.pppb.tb02.presenter.IMainPresenter
-import com.pppb.tb02.presenter.MainPresenter
+import com.github.frostygum.R
+import com.github.frostygum.databinding.FragmentGamePausedBinding
+import com.github.frostygum.presenter.IMainPresenter
 import java.lang.ClassCastException
 
 class FragmentGamePause: Fragment(R.layout.fragment_game_paused) {

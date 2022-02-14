@@ -1,6 +1,6 @@
-package com.pppb.tb02.presenter
+package com.github.frostygum.presenter
 
-import com.pppb.tb02.model.Piano
+import com.github.frostygum.model.Piano
 
 interface IMainPresenter {
     fun setPiano(piano: Piano)

@@ -1,10 +1,10 @@
-package com.pppb.tb02.storage
+package com.github.frostygum.storage
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.pppb.tb02.model.HighScore
+import com.github.frostygum.model.HighScore
 
 class ViewStorage(ctx: Context)  {
     private var sp: SharedPreferences

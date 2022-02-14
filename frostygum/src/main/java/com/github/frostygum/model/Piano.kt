@@ -1,4 +1,4 @@
-package com.pppb.tb02.model
+package com.github.frostygum.model
 
 class Piano() {
     var notes: List<Note> = listOf()

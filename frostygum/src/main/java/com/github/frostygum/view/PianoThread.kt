@@ -1,8 +1,8 @@
-package com.pppb.tb02.view
+package com.github.frostygum.view
 
 
-import com.pppb.tb02.model.Piano
-import com.pppb.tb02.util.PianoGenerator
+import com.github.frostygum.model.Piano
+import com.github.frostygum.util.PianoGenerator
 import kotlin.random.Random
 
 class PianoThread(

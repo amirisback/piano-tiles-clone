@@ -1,11 +1,11 @@
-package com.pppb.tb02.presenter
+package com.github.frostygum.presenter
 
 import android.app.Application
-import com.pppb.tb02.model.HighScore
-import com.pppb.tb02.model.Piano
-import com.pppb.tb02.storage.ViewStorage
-import com.pppb.tb02.util.PianoGenerator
-import com.pppb.tb02.view.IMainActivity
+import com.github.frostygum.model.HighScore
+import com.github.frostygum.model.Piano
+import com.github.frostygum.storage.ViewStorage
+import com.github.frostygum.util.PianoGenerator
+import com.github.frostygum.view.IMainActivity
 import kotlin.random.Random
 
 class MainPresenter(private val ui: IMainActivity, private val application: Application): IMainPresenter {

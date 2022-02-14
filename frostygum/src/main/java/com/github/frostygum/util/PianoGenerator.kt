@@ -1,6 +1,6 @@
-package com.pppb.tb02.util
+package com.github.frostygum.util
 
-import com.pppb.tb02.model.Piano
+import com.github.frostygum.model.Piano
 
 object PianoGenerator {
     fun createPiano(size: Int, startPos: Int, alwaysHasNote: Boolean = false, isBonusLevel: Boolean = false): Piano {

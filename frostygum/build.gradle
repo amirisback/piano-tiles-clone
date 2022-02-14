@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.pppb.tb02"
+        applicationId "com.github.frostygum"
         minSdk 21
         targetSdk 31
         versionCode 1

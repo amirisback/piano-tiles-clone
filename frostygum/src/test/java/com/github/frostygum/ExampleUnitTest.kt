@@ -1,4 +1,4 @@
-package com.pppb.tb02
+package com.github.frostygum
 
 import org.junit.Test
 

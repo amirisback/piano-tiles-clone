@@ -1,9 +1,9 @@
-package com.pppb.tb02.view
+package com.github.frostygum.view
 
 import android.os.Handler
 import android.os.Message
-import com.pppb.tb02.model.Piano
-import com.pppb.tb02.presenter.IMainPresenter
+import com.github.frostygum.model.Piano
+import com.github.frostygum.presenter.IMainPresenter
 
 class PianoThreadHandler(private val presenter: IMainPresenter) : Handler() {
     private val msgTilesPosition = 0

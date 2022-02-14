@@ -1,12 +1,12 @@
-package com.pppb.tb02.view
+package com.github.frostygum.view
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import com.pppb.tb02.databinding.ScoreItemBinding
-import com.pppb.tb02.model.HighScore
+import com.github.frostygum.databinding.ScoreItemBinding
+import com.github.frostygum.model.HighScore
 
 class ScoreListAdapter(private val view: Context) : BaseAdapter() {
     private var scoreList: MutableList<HighScore> = mutableListOf()

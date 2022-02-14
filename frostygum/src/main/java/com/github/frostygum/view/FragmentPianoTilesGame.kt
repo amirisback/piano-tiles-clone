@@ -1,4 +1,4 @@
-package com.pppb.tb02.view
+package com.github.frostygum.view
 
 import android.content.Context
 import android.graphics.*
@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.view.*
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import com.pppb.tb02.R
-import com.pppb.tb02.databinding.FragmentPianoTilesGameBinding
-import com.pppb.tb02.model.Piano
-import com.pppb.tb02.presenter.IMainPresenter
+import com.github.frostygum.R
+import com.github.frostygum.databinding.FragmentPianoTilesGameBinding
+import com.github.frostygum.model.Piano
+import com.github.frostygum.presenter.IMainPresenter
 import java.lang.ClassCastException
 
 class FragmentPianoTilesGame: Fragment(R.layout.fragment_piano_tiles_game), View.OnTouchListener {
