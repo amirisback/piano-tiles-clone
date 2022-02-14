@@ -1,7 +1,0 @@
-rootProject.name = "PianoTiles"
-include ':mihaimaximfii'
-include ':gianmartind'
-include ':atillaturkmen'
-include ':jghjianghan'
-include ':frostygum'
-include ':obedkristiaji'
