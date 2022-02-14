@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/food_list"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:padding="20dp"
+    android:gravity="center"
+    >
+    <TextView
+        android:id="@+id/tv_level_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_score"
+        android:textSize="17sp"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:id="@+id/tv_score_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_level"
+        android:textSize="17sp"
+        android:layout_weight="1"
+        android:gravity="end"
+        />
+</LinearLayout>

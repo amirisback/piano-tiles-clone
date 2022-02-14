@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Piano Tiles</string>
+    <string name="btn_play_again">PLAY AGAIN</string>
+    <string name="tv_game_over">GAME OVER</string>
+    <string name="tv_background">Background</string>
+    <string name="tv_difficulty">Difficulty</string>
+    <string name="score">SCORE : 0</string>
+    <string name="btn_normal">NORMAL</string>
+    <string name="btn_hard">HARD</string>
+</resources>

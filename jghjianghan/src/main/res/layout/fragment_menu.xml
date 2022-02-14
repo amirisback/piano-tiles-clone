@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="20dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_classic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_classic_string"
+        android:textStyle="bold|italic"
+        android:background="@drawable/button_background_classic"
+        android:textSize="20sp"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <Button
+        android:id="@+id/btn_arcade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_background_arcade"
+        android:padding="20dp"
+        android:text="@string/btn_arcade_string"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/btn_classic"
+        app:layout_constraintStart_toStartOf="@+id/btn_classic"
+        app:layout_constraintTop_toBottomOf="@+id/btn_classic" />
+
+    <Button
+        android:id="@+id/btn_raining"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_background_raining"
+        android:padding="20dp"
+        android:text="@string/btn_raining_string"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/btn_classic"
+        app:layout_constraintStart_toStartOf="@+id/btn_classic"
+        app:layout_constraintTop_toBottomOf="@+id/btn_arcade" />
+
+    <Button
+        android:id="@+id/btn_tilt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_background_tilt"
+        android:padding="20dp"
+        android:text="@string/btn_tilt_string"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/btn_classic"
+        app:layout_constraintStart_toStartOf="@+id/btn_classic"
+        app:layout_constraintTop_toBottomOf="@+id/btn_raining" />
+
+    <Button
+        android:id="@+id/btn_highscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_background"
+        android:padding="20dp"
+        android:text="@string/btn_highscore_string"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/btn_tilt" />
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background_cancel"
+        android:padding="20dp"
+        android:text="@string/btn_exit_string"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/btn_tilt"
+        app:layout_constraintStart_toStartOf="@+id/btn_tilt"
+        app:layout_constraintTop_toBottomOf="@+id/btn_highscore" />
+</androidx.constraintlayout.widget.ConstraintLayout>

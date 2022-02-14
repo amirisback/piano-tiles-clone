@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">TB02</string>
+
+    <string name="iv_desc">canvas tiles</string>
+
+    <string name="btn_start">start</string>
+    <string name="btn_pause">pause</string>
+    <string name="btn_restart">restart</string>
+    <string name="btn_score">High Score</string>
+
+    <string name="start_score">0</string>
+    <string name="start_level">1</string>
+    <string name="tv_pause">pause</string>
+    <string name="tv_score">0</string>
+    <string name="tv_score_string">score :</string>
+    <string name="tv_score_value">0</string>
+    <string name="tv_score_title">High Score</string>
+    <string name="tv_level_string">level :</string>
+    <string name="tv_level_value">0</string>
+    <string name="tv_start">lose</string>
+    <string name="tv_level">level</string>
+    <string name="timer"> </string>
+    <string name="bonus_level">BONUS</string>
+
+    <string name="openDrawer">open</string>
+    <string name="closeDrawer">close</string>
+</resources>

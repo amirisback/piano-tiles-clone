@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:text="@string/btn_highscore_string"
+        android:textStyle="bold|italic"
+        android:textSize="40sp"
+        />
+
+    <ListView
+        android:id="@+id/lv_highscore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:padding="20dp"
+        android:background="@drawable/desc_background"
+        />
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_highscore_reset"
+        android:textStyle="bold|italic"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_background_dangerous_action"
+        android:padding="20dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_back"
+        android:textStyle="bold|italic"
+        android:background="@drawable/button_background_cancel"
+        android:padding="20dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

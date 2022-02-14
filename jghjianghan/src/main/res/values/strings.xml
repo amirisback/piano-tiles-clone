@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">PIANO TILE SUPER</string>
+
+    <!--    Buttons-->
+    <string name="btn_start_string">START</string>
+    <string name="btn_cancel_string">CANCEL</string>
+
+    <string name="btn_exit_string">EXIT</string>
+    <string name="btn_highscore_string">High Scores</string>
+    <string name="btn_highscore_reset">Reset All</string>
+    <string name="btn_back">Back</string>
+
+    <string name="btn_playagain">Play Again</string>
+    <string name="btn_mainmenu">Main Menu</string>
+
+    <!--    Modes-->
+    <string name="btn_classic_string">Classic</string>
+    <string name="btn_arcade_string">Arcade</string>
+    <string name="btn_raining_string">Raining</string>
+    <string name="btn_tilt_string">Tilt</string>
+
+    <!--    Text Views-->
+    <string name="tv_goals_title_string">Goals</string>
+    <string name="tv_goals_string">...</string>
+
+    <string name="res_score">Score : </string>
+    <string name="res_highscore">High Score : </string>
+
+    <!--    Description-->
+    <string name="desc_classic">
+        The tiles will move as you tap the correct one.
+        Once you tap it wrong, the game will be over!
+    </string>
+    <string name="desc_arcade">
+        The tiles are not waiting for you and gonna go faster,
+        so make sure to tap them correctly and do not miss a single tile!
+    </string>
+    <string name="desc_raining">
+        Ever played G*itar He*oes?
+        In this mode, tiles are moving at different speeds, it is
+        like.. the rain. You know, just tap them!
+    </string>
+    <string name="desc_tilt">
+        We are not going to use the tap-tap things here.
+        Tilt your device to move the ball.
+        You have to "catch" the raining tiles, or at least,
+        touch them with your ball!
+    </string>
+
+    <!--    Result Message-->
+    <string name="res_win">Congratulations!</string>
+    <string name="res_lose">Game Over</string>
+
+    <!--    Pause Dialog-->
+    <string name="tv_pause_text">GAME PAUSED</string>
+    <string name="btn_pause_icon">| |</string>
+    <string name="btn_resume_text">resume</string>
+    <string name="btn_exit_text">exit</string>
+
+    <!--    <string name=""></string>   -->
+</resources>
