@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.piano_tiles_kw"
+        applicationId "com.github.jghjianghan"
         minSdk 21
         targetSdk 31
         versionCode 1

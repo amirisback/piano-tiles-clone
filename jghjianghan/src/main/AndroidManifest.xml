@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.piano_tiles_kw">
+    package="com.github.jghjianghan">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.github.jghjianghan.view.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
