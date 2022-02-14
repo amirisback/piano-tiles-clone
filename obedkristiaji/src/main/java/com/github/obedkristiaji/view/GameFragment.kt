@@ -1,4 +1,4 @@
-package com.github.pianotiles.view
+package com.github.obedkristiaji.view
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -9,10 +9,10 @@ import android.view.*
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
-import com.github.pianotiles.R
-import com.github.pianotiles.databinding.FragmentGameBinding
-import com.github.pianotiles.model.Piano
-import com.github.pianotiles.presenter.IMainPresenter
+import com.github.obedkristiaji.R
+import com.github.obedkristiaji.databinding.FragmentGameBinding
+import com.github.obedkristiaji.model.Piano
+import com.github.obedkristiaji.presenter.IMainPresenter
 
 class GameFragment : Fragment(), View.OnTouchListener {
     private lateinit var binding: FragmentGameBinding

@@ -1,6 +1,6 @@
-package com.github.pianotiles.presenter
+package com.github.obedkristiaji.presenter
 
-import com.github.pianotiles.model.Piano
+import com.github.obedkristiaji.model.Piano
 
 interface IMainPresenter {
     fun lose(score: Int)

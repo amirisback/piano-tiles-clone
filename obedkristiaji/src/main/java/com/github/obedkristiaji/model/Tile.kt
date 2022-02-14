@@ -1,4 +1,4 @@
-package com.github.pianotiles.model
+package com.github.obedkristiaji.model
 
 import android.graphics.Rect
 

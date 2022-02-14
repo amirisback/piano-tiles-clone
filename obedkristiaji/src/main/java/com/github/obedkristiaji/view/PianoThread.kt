@@ -1,7 +1,7 @@
-package com.github.pianotiles.view
+package com.github.obedkristiaji.view
 
 import android.graphics.Rect
-import com.github.pianotiles.model.Piano
+import com.github.obedkristiaji.model.Piano
 
 class PianoThread(private val handler: ThreadHandler, private val canvas: Pair<Int, Int>, private val level: Int) : Runnable {
     private var thread: Thread = Thread(this)

@@ -1,8 +1,8 @@
-package com.github.pianotiles.storage
+package com.github.obedkristiaji.storage
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.github.pianotiles.R
+import com.github.obedkristiaji.R
 
 class GameStorage(context: Context) {
     protected var sharedPref: SharedPreferences

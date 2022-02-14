@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.pianotiles"
+        applicationId "com.github.obedkristiaji"
         minSdk 21
         targetSdk 31
         versionCode 1

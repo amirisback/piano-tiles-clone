@@ -1,4 +1,4 @@
-package com.github.pianotiles.view
+package com.github.obedkristiaji.view
 
 import android.content.Context
 import android.graphics.Color
@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.github.pianotiles.databinding.FragmentCountdownBinding
-import com.github.pianotiles.presenter.IMainPresenter
+import com.github.obedkristiaji.databinding.FragmentCountdownBinding
+import com.github.obedkristiaji.presenter.IMainPresenter
 
 class CountdownFragment : DialogFragment() {
     private lateinit var binding: FragmentCountdownBinding

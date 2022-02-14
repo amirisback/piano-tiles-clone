@@ -1,6 +1,6 @@
-package com.github.pianotiles.view
+package com.github.obedkristiaji.view
 
-import com.github.pianotiles.model.Piano
+import com.github.obedkristiaji.model.Piano
 
 interface IMainActivity {
     fun changePage(page: Int)

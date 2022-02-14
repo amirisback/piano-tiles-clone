@@ -1,4 +1,4 @@
-package com.github.pianotiles.view
+package com.github.obedkristiaji.view
 
 import android.content.Context
 import android.graphics.Color
@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.github.pianotiles.R
-import com.github.pianotiles.databinding.FragmentSettingBinding
-import com.github.pianotiles.presenter.IMainPresenter
+import com.github.obedkristiaji.R
+import com.github.obedkristiaji.databinding.FragmentSettingBinding
+import com.github.obedkristiaji.presenter.IMainPresenter
 
 class SettingFragment : DialogFragment() {
     private lateinit var binding: FragmentSettingBinding

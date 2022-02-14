@@ -1,9 +1,9 @@
-package com.github.pianotiles.view
+package com.github.obedkristiaji.view
 
 import android.os.Handler
 import android.os.Message
-import com.github.pianotiles.model.Piano
-import com.github.pianotiles.presenter.IMainPresenter
+import com.github.obedkristiaji.model.Piano
+import com.github.obedkristiaji.presenter.IMainPresenter
 
 class ThreadHandler(private val presenter: IMainPresenter): Handler() {
     private val MSG_SET_RECT: Int = 0

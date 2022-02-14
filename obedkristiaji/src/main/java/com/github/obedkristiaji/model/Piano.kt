@@ -1,4 +1,4 @@
-package com.github.pianotiles.model
+package com.github.obedkristiaji.model
 
 class Piano {
     var tiles: List<Tile> = listOf()

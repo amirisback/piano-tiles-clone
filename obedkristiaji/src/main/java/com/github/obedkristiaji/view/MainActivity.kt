@@ -1,4 +1,4 @@
-package com.github.pianotiles.view
+package com.github.obedkristiaji.view
 
 import android.content.Context
 import android.content.pm.ActivityInfo
@@ -10,9 +10,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.github.pianotiles.databinding.ActivityMainBinding
-import com.github.pianotiles.model.Piano
-import com.github.pianotiles.presenter.MainPresenter
+import com.github.obedkristiaji.databinding.ActivityMainBinding
+import com.github.obedkristiaji.model.Piano
+import com.github.obedkristiaji.presenter.MainPresenter
 
 
 class MainActivity: AppCompatActivity(), SensorEventListener, IMainActivity {

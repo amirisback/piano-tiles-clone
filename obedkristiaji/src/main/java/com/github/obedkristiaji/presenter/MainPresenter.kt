@@ -1,8 +1,8 @@
-package com.github.pianotiles.presenter
+package com.github.obedkristiaji.presenter
 
-import com.github.pianotiles.model.Piano
-import com.github.pianotiles.storage.GameStorage
-import com.github.pianotiles.view.MainActivity
+import com.github.obedkristiaji.model.Piano
+import com.github.obedkristiaji.storage.GameStorage
+import com.github.obedkristiaji.view.MainActivity
 
 class MainPresenter(private val view: MainActivity): IMainPresenter {
     private val db: GameStorage = GameStorage(this.view)
