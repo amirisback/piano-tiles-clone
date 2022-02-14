@@ -25,6 +25,21 @@ What's New??
 |:----:|:----:|:----:|
 |<img width="200px" height="360px" src="docs/image/ss_7.png"> | <img width="200px" height="360px" src="docs/image/ss_8.png"> | <img width="200px" height="360px" src="docs/image/ss_9.png"> |
 
+## Screen Shoot [Jiang Han](https://github.com/jghjianghan)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<img width="200px" height="360px" src="docs/image/ss_10.png"> | <img width="200px" height="360px" src="docs/image/ss_11.png"> | <img width="200px" height="360px" src="docs/image/ss_12.png"> |
+
+## Screen Shoot [Obed Kristiaji](https://github.com/obedkristiaji)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<img width="200px" height="360px" src="docs/image/ss_13.png"> | <img width="200px" height="360px" src="docs/image/ss_14.png"> | <img width="200px" height="360px" src="docs/image/ss_15.png"> |
+
+## Screen Shoot [frostygum](https://github.com/frostygum)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<img width="200px" height="360px" src="docs/image/ss_16.png"> | <img width="200px" height="360px" src="docs/image/ss_17.png"> | <img width="200px" height="360px" src="docs/image/ss_18.png"> |
+
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
