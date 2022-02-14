@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
 }
 
 android {
@@ -33,8 +33,8 @@ android {
 
         // Naming APK // AAB
         setProperty("archivesBaseName", nameAPK + versionName + "#" + versionCode + "-"
-                + new Date().format('ddMMyy'))
-        resConfigs 'en', 'id'
+                + new Date().format("ddMMyy"))
+        resConfigs "en", "id"
 
 
         // Inject app name for debug
@@ -45,7 +45,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
 
             // Inject app name for release
             resValue "string", "app_name", nameApp
@@ -58,12 +58,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
 }
@@ -71,12 +71,12 @@ android {
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation "androidx.appcompat:appcompat:1.4.1"
+    implementation "com.google.android.material:material:1.5.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.3"
 
-    testImplementation 'junit:junit:4.13.2'
-    implementation 'com.squareup.picasso:picasso:2.71828'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation "junit:junit:4.13.2"
+    implementation "com.squareup.picasso:picasso:2.71828"
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
 }
