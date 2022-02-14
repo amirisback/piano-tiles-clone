@@ -6,18 +6,6 @@ plugins {
 
 android {
 
-    def versionMajor = 1
-    def versionMinor = 0
-    def versionPatch = 0
-
-    def appDomain = "com"
-    def appDevConsole = "github"
-    def appName = "mihaimaximfii"
-
-    def projectApplicationId = "$appDomain.$appDevConsole.$appName"
-    def projectVersionCode = (versionMajor * 100) + (versionMinor * 10) + (versionPatch * 1)
-    def projectVersionName = "$versionMajor.$versionMinor.$versionPatch"
-
     // Declaration app name
     def nameApp = "Piano Tiles"
     def nameAppLower = nameApp.toLowerCase()
@@ -25,16 +13,15 @@ android {
     // Declaration apk / aab name
     def nameAPK = nameAppLower.replace(" ", "-")
 
-
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdk 31
 
     defaultConfig {
-        applicationId projectApplicationId
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode projectVersionCode
-        versionName projectVersionName
+        applicationId "com.github.mihaimaximfii"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0.0"
+
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -47,8 +34,8 @@ android {
         // Naming APK // AAB
         setProperty("archivesBaseName", nameAPK + versionName + "#" + versionCode + "-"
                 + new Date().format('ddMMyy'))
+        resConfigs 'en', 'id'
 
-        resConfigs "en", "id"
 
         // Inject app name for debug
         resValue "string", "app_name", nameAppDebug
@@ -67,7 +54,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        viewBinding true
     }
 
     compileOptions {
@@ -84,9 +71,9 @@ android {
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
 
     testImplementation 'junit:junit:4.13.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
