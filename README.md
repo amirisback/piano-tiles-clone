@@ -11,34 +11,90 @@ What's New??
     * Development *
 
 ## Screen Shoot [Mihai-Maxim-Fii](https://github.com/Mihai-Maxim-Fii)
-| UI 1 | UI 2 | UI 3 |
-|:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_1.png"> | <img width="200px" height="360px" src="docs/image/ss_2.png"> | <img width="200px" height="360px" src="docs/image/ss_3.png"> |
+
+<table>
+    <tr>
+        <th>UI 1</th>
+        <th>UI 2</th>
+        <th>UI 3</th>
+    </tr>
+    <tr>
+        <td><img width="200px" height="360px" src="docs/image/ss_1.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_2.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_3.png"></td>
+    </tr>
+</table>
 
 ## Screen Shoot [Gian Martin](https://github.com/gianmartind)
-| UI 1 | UI 2 | UI 3 |
-|:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_4.png"> | <img width="200px" height="360px" src="docs/image/ss_5.png"> | <img width="200px" height="360px" src="docs/image/ss_6.png"> |
+
+<table>
+    <tr>
+        <th>UI 1</th>
+        <th>UI 2</th>
+        <th>UI 3</th>
+    </tr>
+    <tr>
+        <td><img width="200px" height="360px" src="docs/image/ss_4.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_5.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_6.png"></td>
+    </tr>
+</table>
 
 ## Screen Shoot [Attila](https://github.com/atillaturkmen)
-| UI 1 | UI 2 | UI 3 |
-|:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_7.png"> | <img width="200px" height="360px" src="docs/image/ss_8.png"> | <img width="200px" height="360px" src="docs/image/ss_9.png"> |
+<table>
+    <tr>
+        <th>UI 1</th>
+        <th>UI 2</th>
+        <th>UI 3</th>
+    </tr>
+    <tr>
+        <td><img width="200px" height="360px" src="docs/image/ss_7.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_8.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_9.png"></td>
+    </tr>
+</table>
 
 ## Screen Shoot [Jiang Han](https://github.com/jghjianghan)
-| UI 1 | UI 2 | UI 3 |
-|:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_10.png"> | <img width="200px" height="360px" src="docs/image/ss_11.png"> | <img width="200px" height="360px" src="docs/image/ss_12.png"> |
+<table>
+    <tr>
+        <th>UI 1</th>
+        <th>UI 2</th>
+        <th>UI 3</th>
+    </tr>
+    <tr>
+        <td><img width="200px" height="360px" src="docs/image/ss_10.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_11.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_12.png"></td>
+    </tr>
+</table>
 
 ## Screen Shoot [Obed Kristiaji](https://github.com/obedkristiaji)
-| UI 1 | UI 2 | UI 3 |
-|:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_13.png"> | <img width="200px" height="360px" src="docs/image/ss_14.png"> | <img width="200px" height="360px" src="docs/image/ss_15.png"> |
+<table>
+    <tr>
+        <th>UI 1</th>
+        <th>UI 2</th>
+        <th>UI 3</th>
+    </tr>
+    <tr>
+        <td><img width="200px" height="360px" src="docs/image/ss_13.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_14.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_15.png"></td>
+    </tr>
+</table>
 
 ## Screen Shoot [frostygum](https://github.com/frostygum)
-| UI 1 | UI 2 | UI 3 |
-|:----:|:----:|:----:|
-|<img width="200px" height="360px" src="docs/image/ss_16.png"> | <img width="200px" height="360px" src="docs/image/ss_17.png"> | <img width="200px" height="360px" src="docs/image/ss_18.png"> |
+<table>
+    <tr>
+        <th>UI 1</th>
+        <th>UI 2</th>
+        <th>UI 3</th>
+    </tr>
+    <tr>
+        <td><img width="200px" height="360px" src="docs/image/ss_16.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_17.png"></td>
+        <td><img width="200px" height="360px" src="docs/image/ss_18.png"></td>
+    </tr>
+</table>
 
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
