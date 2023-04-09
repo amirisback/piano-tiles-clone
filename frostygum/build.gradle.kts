@@ -7,6 +7,7 @@ plugins {
 
 android {
 
+    namespace = "com.github.frostygum"
     compileSdk = ProjectSetting.PROJECT_COMPILE_SDK
 
     defaultConfig {
@@ -54,7 +55,7 @@ android {
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_11.toString()
+            jvmTarget = "11"
         }
     }
 
@@ -65,8 +66,4 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("com.google.code.gson:gson:2.8.9")
-
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }
