@@ -14,7 +14,7 @@
 object Dependency {
 
     // dependencies version
-    const val KOTLIN_VERSION = "1.6.10"
+    const val KOTLIN_VERSION = "2.4.20"
     const val COMPOSE_VERSION = "1.0.5"
 
 }

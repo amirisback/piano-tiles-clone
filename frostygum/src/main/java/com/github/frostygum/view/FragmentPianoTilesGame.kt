@@ -233,14 +233,12 @@ class FragmentPianoTilesGame: Fragment(R.layout.fragment_piano_tiles_game), View
     }
 
     override fun onTouch(view: View?, event: MotionEvent?): Boolean {
-        return this.detector.onTouchEvent(event)
+        return event?.let { this.detector.onTouchEvent(it) } ?: false
     }
 
     private inner class TilesGestureListener : GestureDetector.SimpleOnGestureListener() {
-        override fun onDown(e: MotionEvent?): Boolean {
-            if (e != null) {
-                calculateClickPos(e.x, e.y)
-            }
+        override fun onDown(e: MotionEvent): Boolean {
+            calculateClickPos(e.x, e.y)
             return super.onDown(e)
         }
     }

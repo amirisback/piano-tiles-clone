@@ -26,7 +26,7 @@ class MainActivity: AppCompatActivity(), SensorEventListener, IMainActivity {
     private lateinit var handler: ThreadHandler
     private lateinit var presenter: MainPresenter
     private lateinit var mSensorManager: SensorManager
-    private lateinit var accelerometer: Sensor
+    private var accelerometer: Sensor? = null
     private var accelerometerReading: FloatArray = FloatArray(3)
     private var lastUpdate: Long = 0
 

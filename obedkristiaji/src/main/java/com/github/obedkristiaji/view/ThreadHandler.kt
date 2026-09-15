@@ -1,11 +1,12 @@
 package com.github.obedkristiaji.view
 
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import com.github.obedkristiaji.model.Piano
 import com.github.obedkristiaji.presenter.IMainPresenter
 
-class ThreadHandler(private val presenter: IMainPresenter): Handler() {
+class ThreadHandler(private val presenter: IMainPresenter): Handler(Looper.getMainLooper()) {
     private val MSG_SET_RECT: Int = 0
     private val MSG_RESET_THREAD: Int = 1
     private val MSG_SET_POS: Int = 2

@@ -15,7 +15,7 @@ object ProjectSetting {
 
     // project settings
     const val NAME_APP = "Piano Tiles"
-    val NAME_APK = NAME_APP.toLowerCase().replace(" ", "-")
+    val NAME_APK = NAME_APP.lowercase().replace(" ", "-")
 
     const val APP_DOMAIN = "com"
     const val APP_PLAY_CONSOLE = "github"
@@ -24,8 +24,8 @@ object ProjectSetting {
     const val VERSION_MINOR = 0
     const val VERSION_PATCH = 0
 
-    const val PROJECT_COMPILE_SDK = 31
-    const val PROJECT_MIN_SDK = 21
+    const val PROJECT_COMPILE_SDK = 36
+    const val PROJECT_MIN_SDK = 24
     const val PROJECT_TARGET_SDK = PROJECT_COMPILE_SDK
 
     const val PROJECT_APP_ID = "$APP_DOMAIN.$APP_PLAY_CONSOLE"

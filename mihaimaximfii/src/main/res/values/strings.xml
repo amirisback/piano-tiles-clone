@@ -1,5 +1,5 @@
 <resources>
-
+    <string name="app_name">Piano Tiles</string>
     <string name="title_activity_score">Score</string>
 
     <string name="next">Next</string>

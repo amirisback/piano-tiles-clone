@@ -6,8 +6,8 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.*
+import android.view.GestureDetector
 import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import com.github.obedkristiaji.R
 import com.github.obedkristiaji.databinding.FragmentGameBinding
@@ -18,7 +18,7 @@ class GameFragment : Fragment(), View.OnTouchListener {
     private lateinit var binding: FragmentGameBinding
     private lateinit var listener: IMainActivity
     private lateinit var canvas: Canvas
-    private lateinit var mDetector: GestureDetectorCompat
+    private lateinit var mDetector: GestureDetector
     private lateinit var handler: ThreadHandler
     private lateinit var presenter: IMainPresenter
     lateinit var pianoThread: PianoThread
@@ -35,7 +35,7 @@ class GameFragment : Fragment(), View.OnTouchListener {
     ): View? {
         this.binding = FragmentGameBinding.inflate(inflater, container, false)
 
-        this.mDetector = GestureDetectorCompat(this.activity, MyCustomGestureListener())
+        this.mDetector = GestureDetector(requireActivity(), MyCustomGestureListener())
 
         this.binding.ivCanvas.setOnTouchListener(this)
 
@@ -149,21 +149,19 @@ class GameFragment : Fragment(), View.OnTouchListener {
 
     override fun onTouch(view: View?, motionEvent: MotionEvent?): Boolean {
         if(this.presenter.isStartGame() == true && this.presenter.isThread() == true && this.presenter.isPause() == false) {
-            return this.mDetector.onTouchEvent(motionEvent)
+            return motionEvent?.let { this.mDetector.onTouchEvent(it) } ?: false
         } else {
             return false
         }
     }
 
     private inner class MyCustomGestureListener : GestureDetector.SimpleOnGestureListener() {
-        override fun onDown(e: MotionEvent?): Boolean {
-            if (e != null) {
-                for (i in 0..presenter.getPiano().size-1) {
-                    for (j in 0..presenter.getPiano().tiles[i].getSize()-1) {
-                        if(presenter.getPiano().tiles[i].getRect(j).contains((e.x).toInt(), (e.y).toInt())) {
-                            pianoThread.deleteTile(i, j)
-                            break
-                        }
+        override fun onDown(e: MotionEvent): Boolean {
+            for (i in 0..presenter.getPiano().size-1) {
+                for (j in 0..presenter.getPiano().tiles[i].getSize()-1) {
+                    if(presenter.getPiano().tiles[i].getRect(j).contains((e.x).toInt(), (e.y).toInt())) {
+                        pianoThread.deleteTile(i, j)
+                        break
                     }
                 }
             }

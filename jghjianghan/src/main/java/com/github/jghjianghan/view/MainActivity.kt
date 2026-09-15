@@ -1,6 +1,7 @@
 package com.github.jghjianghan.view
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
@@ -38,6 +39,22 @@ class MainActivity : AppCompatActivity(), FragmentListener {
         vm = ViewModelProvider(this).get(MainVM::class.java)
         initHighscore()
 
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                when (page) {
+                    Page.GAMEPLAY -> {
+                        gameplayFragment.showPauseDialog()
+                    }
+                    Page.RESULT -> changePage(Page.MENU)
+                    else -> {
+                        isEnabled = false
+                        onBackPressedDispatcher.onBackPressed()
+                        isEnabled = true
+                    }
+                }
+            }
+        })
+
         changePage(Page.MENU)
     }
 
@@ -67,15 +84,6 @@ class MainActivity : AppCompatActivity(), FragmentListener {
         page = p
     }
 
-    override fun onBackPressed() {
-        when (page) {
-            Page.GAMEPLAY -> {
-                gameplayFragment.showPauseDialog()
-            }
-            Page.RESULT -> changePage(Page.MENU)
-            else -> super.onBackPressed()
-        }
-    }
 
     override fun closeApplication() {
         moveTaskToBack(true)

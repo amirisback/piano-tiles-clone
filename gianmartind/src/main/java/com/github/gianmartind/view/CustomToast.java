@@ -14,11 +14,9 @@ public class CustomToast {
     protected Toast toast;
     protected String text;
     protected int duration;
-    protected ImageView imageView;
     protected TextView textView;
 
     public CustomToast(View view, Context context){
-        this.imageView = view.findViewById(R.id.image);
         this.textView = view.findViewById(R.id.text);
         this.toast = new Toast(context);
         this.toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);

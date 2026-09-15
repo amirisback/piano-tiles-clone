@@ -1,11 +1,12 @@
 package com.github.frostygum.view
 
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import com.github.frostygum.model.Piano
 import com.github.frostygum.presenter.IMainPresenter
 
-class PianoThreadHandler(private val presenter: IMainPresenter) : Handler() {
+class PianoThreadHandler(private val presenter: IMainPresenter) : Handler(Looper.getMainLooper()) {
     private val msgTilesPosition = 0
     private val msgThreadBlocked = 1
     private val msgGameLevel = 2

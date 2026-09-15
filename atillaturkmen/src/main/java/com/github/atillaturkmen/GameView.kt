@@ -79,7 +79,7 @@ class GameView(context: Context) : SurfaceView(context), SurfaceHolder.Callback 
         scorePaint.textSize = scoreSize
 
         if (music && soundPool == null) {
-            soundPool = SoundPool(20, AudioManager.STREAM_MUSIC, 0)
+            soundPool = SoundPool.Builder().setMaxStreams(20).build()
             if (failSound == null) {
                 failSound = soundPool?.load(context, R.raw.failsound, 1)
             }
@@ -142,11 +142,11 @@ class GameView(context: Context) : SurfaceView(context), SurfaceHolder.Callback 
         drawLines(canvas)
 
         // remove the tiles that are out of screen from tiles list
-        if (tiles.first.outOfScreen) {
+        if (tiles.first().outOfScreen) {
             tiles.poll()
         }
         // draw new tiles when last one is on the screen
-        if (tiles.last.startY >= 0) {
+        if (tiles.last().startY >= 0) {
             do {
                 row = (0..3).random()
             } while (row == lastRow)
@@ -200,11 +200,7 @@ class GameView(context: Context) : SurfaceView(context), SurfaceHolder.Callback 
                         for (tile in tempTiles) {
                             if (tile.checkTouch(touchedX, touchedY)) {
                                 soundPool?.play(tileSound!!, 1f, 1f,0,0, 1f)
-                                if (Build.VERSION.SDK_INT >= 26) {
-                                    vibrator?.vibrate(VibrationEffect.createOneShot(40, VibrationEffect.DEFAULT_AMPLITUDE))
-                                } else {
-                                    vibrator?.vibrate(40)
-                                }
+                                vibrator?.vibrate(VibrationEffect.createOneShot(40, VibrationEffect.DEFAULT_AMPLITUDE))
                                 break
                             }
                             else if(!tile.pressed && touchedY < tile.endY && touchedY > tile.startY) {

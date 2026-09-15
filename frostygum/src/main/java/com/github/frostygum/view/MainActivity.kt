@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), IMainActivity, SensorEventListener {
     private var selected = Fragment()
 
     private lateinit var mSensorManager: SensorManager
-    private lateinit var accelerometer: Sensor
+    private var accelerometer: Sensor? = null
     private var accelerometerReading: FloatArray = FloatArray(3)
     private var accelerometerReadingPrev: FloatArray = FloatArray(3)
     private var shakeThreshold: Int = 1500
@@ -164,12 +164,7 @@ class MainActivity : AppCompatActivity(), IMainActivity, SensorEventListener {
                     val speed: Float = kotlin.math.abs(x + y + z - accelerometerReadingPrev[0] - accelerometerReadingPrev[1] - accelerometerReadingPrev[2]) / diffTime * 10000
                     //if shake detect
                     if (speed > this.shakeThreshold) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            v.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
-                        } else {
-                            //deprecated in API 26
-                            v.vibrate(200);
-                        }
+                        v.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
                         this.presenter.addScore(10)
                     }
                     accelerometerReadingPrev[0] = x

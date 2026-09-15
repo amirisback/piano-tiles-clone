@@ -44,8 +44,8 @@ class GameplayFragment : SensorEventListener, Fragment(), GameEngine.GameListene
     private var pauseable = true
 
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         vm = ViewModelProvider(requireActivity()).get(MainVM::class.java)
         this.gameMode = vm.getGameMode().value!!
     }
@@ -58,7 +58,7 @@ class GameplayFragment : SensorEventListener, Fragment(), GameEngine.GameListene
         binding = FragmentGameplayBinding.inflate(inflater, container, false)
         binding.ivCanvas.addOnLayoutChangeListener{ _, _, _, _, _, _, _, _, _ ->
             if (binding.ivCanvas.width > 0 && binding.ivCanvas.height>0){
-                when(vm.getGameMode().value) {
+                when (gameMode) {
                     GameMode.CLASSIC -> {
                         engine = ClassicGameEngine(requireActivity(), binding.ivCanvas, this)
                     }
